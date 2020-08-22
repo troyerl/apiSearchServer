@@ -1,26 +1,35 @@
 const MongoClient = require('mongodb').MongoClient
 
 class MongoDb {
-  async dbConnect() {
+
+  // connects to db when server starts
+  constructor() {
     const connectionString = 'mongodb+srv://baseUser:baseUser@cluster0.v6w1c.mongodb.net/apiSearch?retryWrites=true&w=majority';
-    
-    try {
-      const client = await MongoClient.connect(connectionString, {
-        useUnifiedTopology: true
-      });
-    } catch (err) {
-      console.log('ERR:');
-      console.log(err);
-    }
-    
-    console.log('Connected to Database')
-    this.db = client.db('apiSearch')
+
+    MongoClient.connect(connectionString, {
+      useUnifiedTopology: true
+    }, (err, client) => {
+      if (err) return console.error(err);
+      console.log('Connected to Database');
+      this.db = client.db('api-search');
+    })
+  };
+
+  // fetches first element from collection, returns keywords array from the first/only doc
+  async fetchKeywords() {
+    let keywords = await this.db.collection('keywordsCollection').find().toArray();
+    return keywords[0].keywords;
   }
 
-  fetchData() {
-    console.log('fetch');
-    console.log(this.test);
-  }
+  async fetchData() {
+
+  };
+
+  
+
+  sendData() {
+    
+  };
 };
 
 module.exports = MongoDb;
