@@ -1,8 +1,15 @@
 const express = require('express');
 const app = express();
+const MongoClient = require('mongodb').MongoClient;
 
-app.get('/', function(req, res) {
-  console.log('hello')
+const db = require('./mongoDb.js');
+
+app.get('/', async function(req, res) {
+  let dbConnection = new db();
+
+  await dbConnection.dbConnect();
+  dbConnection.fetchData();
+
 });
 
 app.listen(5000);
