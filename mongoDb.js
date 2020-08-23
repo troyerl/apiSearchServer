@@ -1,10 +1,11 @@
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient;
+require('dotenv').config();
 
 class MongoDb {
 
   // connects to db when server starts
   constructor() {
-    const connectionString = 'mongodb+srv://baseUser:baseUser@cluster0.v6w1c.mongodb.net/apiSearch?retryWrites=true&w=majority';
+    const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.v6w1c.mongodb.net/apiSearch?retryWrites=true&w=majority`;
 
     MongoClient.connect(connectionString, {
       useUnifiedTopology: true
