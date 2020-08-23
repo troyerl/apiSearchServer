@@ -1,3 +1,5 @@
+const chalk = require('chalk');
+
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
 
@@ -11,7 +13,7 @@ class MongoDb {
       useUnifiedTopology: true
     }, (err, client) => {
       if (err) return console.error(err);
-      console.log('Connected to Database');
+      console.log(chalk.cyan('Connected to Database'));
       this.db = client.db('api-search');
     })
   };
