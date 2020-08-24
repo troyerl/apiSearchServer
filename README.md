@@ -1,7 +1,9 @@
-# apiSearchServer
+## Backend routes
+* #### 'keywords'
+* #### 'search/:searchKeywords'
 
+## MongoDb Functions
 ### fetchKeywords()
-
 * Parameters: None <br/>
 * Returns: Array of keywords <br/>
 
