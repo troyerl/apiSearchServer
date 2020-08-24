@@ -1,13 +1,15 @@
 # apiSearchServer
 
-//No parameters
-//Returns keywords array
-fetchKeywords()
+### fetchKeywords()
 
-//Parameters: array of keywords, e.i.: ['keyword','keyword','keyword'] <br/>
-//Returns array of docs that contain keywords in keywords array in doc <br/>
-fetchApi() <br/>
-<br/>
-//Parameters: array of keywords, e.i.: ['keyword','keyword','keyword']<br/>
-//Returns array of docs that contain keywords in keywords array in doc<br/>
-fetchDatabase()
+* Parameters: None <br/>
+* Returns: Array of keywords <br/>
+
+### fetchApi()
+* Parameters: Array of keywords, e.i.: ['keyword','keyword','keyword']
+* Returns: Array of docs that contains keywords
+
+### fetchDatabase()
+* Parameters: array of keywords, e.i.: ['keyword','keyword','keyword']
+* Returns: Array of docs that contain keywords
+
