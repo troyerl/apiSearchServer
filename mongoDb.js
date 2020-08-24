@@ -1,6 +1,7 @@
 const chalk = require('chalk');
 
 const MongoClient = require('mongodb').MongoClient;
+
 require('dotenv').config();
 
 class MongoDb {
@@ -24,11 +25,26 @@ class MongoDb {
     return keywords[0].keywords;
   }
 
-  async fetchData() {
-
+  // fetches list of api docs that contain keywords
+  async fetchApi(searchKeywords) {
+    let res = await this.db.collection('apiCollection').find({ keywords: searchElements}).toArray();
+    return res;
   };
 
-  
+  // fetches list of api docs that contain keywords
+  async fetchDatabase(searchKeywords) {
+    let res = await this.db.collection('databaseCollection').find({ keywords: searchElements}).toArray();
+    return res;
+  };
+
+  async fetchData(searchKeywords) {
+    let res = null;
+    if (searchKeywords.includes('database')) {
+      res = await this.fetchDatabase(searchKeywords);
+    } else {
+      res = await this.fetchApi(searchKeywords);
+    }
+  };
 
   sendData() {
     

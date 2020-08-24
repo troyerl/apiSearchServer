@@ -19,6 +19,7 @@
   "homepage": "https://github.com/troyerl/basicExpress#readme",
   "dependencies": {
     "chalk": "^4.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jspdf": "^1.5.3",
